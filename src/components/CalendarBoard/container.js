@@ -4,7 +4,6 @@ import { CalendarBoard } from './CalenderBoard';
 import { createCalendar } from '../../utils/calendar';
 
 const mapStateToProps = (state) => {
-  console.log(state.calendar);
   return {
     calendar: state.calendar,
   };
