@@ -18,7 +18,7 @@ const useStyles = makeStyles({
   },
 });
 
-export const CalendarBoard = ({ calendar }) => {
+export const CalendarBoard = ({ calendar, month }) => {
   const classes = useStyles();
 
   return (
@@ -31,11 +31,13 @@ export const CalendarBoard = ({ calendar }) => {
             </Typography>
           </li>
         ))}
-        {calendar.map((day) => (
-          <li key={day}>
-            <CalendarElement day={day.date()} />
-          </li>
-        ))}
+        {calendar.map((c) => {
+          return (
+            <li key={c.toISOString()}>
+              <CalendarElement day={c} month={month} />
+            </li>
+          );
+        })}
       </GridList>
     </div>
   );

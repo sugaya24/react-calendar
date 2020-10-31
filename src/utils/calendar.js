@@ -23,7 +23,24 @@ export const formatMonth = (day) => ({
   year: day.year(),
 });
 
-export const isSameMonth = (day, month) => {
-  const currentMonth = getMonth(month);
-  return true;
+export const isSameDay = (d1, d2) => {
+  const format = 'YYYYMMDD';
+  return d1.format(format) === d2.format(format);
+};
+
+export const isSameMonth = (m1, m2) => {
+  const format = 'YYYYMM';
+  return m1.format(format) === m2.format(format);
+};
+
+export const isFirstDay = (day) => day.date() === 1;
+
+export const getNextMonth = (month) => {
+  const day = getMonth(month).add(1, 'month');
+  return formatMonth(day);
+};
+
+export const getPreviousMonth = (month) => {
+  const day = getMonth(month).add(-1, 'month');
+  return formatMonth(day);
 };
