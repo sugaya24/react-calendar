@@ -19,6 +19,7 @@ export const mapDispatchToProps = (dispatch) => {
 
 export const mergeProps = (stateProps, dispatchProps) => {
   return {
+    calendar: stateProps.calendar,
     month: getMonth(stateProps.calendar),
     setNextMonth: () => {
       const nextMonth = getNextMonth(stateProps.calendar);
