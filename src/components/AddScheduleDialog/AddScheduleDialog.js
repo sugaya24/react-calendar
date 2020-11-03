@@ -17,7 +17,6 @@ export const AddScheduleDialog = ({
   setSchedule,
   saveSchedule,
 }) => {
-  console.log('date', date);
   return (
     <Dialog open={isDialogOpen} onClose={closeDialog} maxWidth="xs" fullWidth>
       <DialogContent>
@@ -33,7 +32,6 @@ export const AddScheduleDialog = ({
         <DatePicker
           value={date}
           onChange={(d) => {
-            console.log('ddddd', d);
             setSchedule({ date: d });
           }}
           variant="inline"

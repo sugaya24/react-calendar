@@ -1,6 +1,5 @@
 import React from 'react';
 import dayjs from 'dayjs';
-
 import { Menu, ArrowBackIos, ArrowForwardIos } from '@material-ui/icons';
 
 export const Navigation = ({ month, setPreviousMonth, setNextMonth }) => {
