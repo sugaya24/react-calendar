@@ -18,7 +18,7 @@ const useStyles = makeStyles({
   },
 });
 
-export const CalendarBoard = ({ calendar, month }) => {
+export const CalendarBoard = ({ calendar, month, openAddScheduleDialog }) => {
   const classes = useStyles();
 
   return (
@@ -31,10 +31,13 @@ export const CalendarBoard = ({ calendar, month }) => {
             </Typography>
           </li>
         ))}
-        {calendar.map((c) => {
+        {calendar.map(({ date, schedules }) => {
           return (
-            <li key={c.toISOString()}>
-              <CalendarElement day={c} month={month} />
+            <li
+              key={date.toISOString()}
+              onClick={() => openAddScheduleDialog(date)}
+            >
+              <CalendarElement day={date} month={month} schedules={schedules} />
             </li>
           );
         })}

@@ -1,3 +1,5 @@
+import dayjs from 'dayjs';
+
 import {
   ADD_SCHEDULE_SET_VALUE,
   ADD_SCHEDULE_OPEN_DIALOG,
@@ -8,7 +10,7 @@ const init = {
   form: {
     title: '',
     description: '',
-    date: null,
+    date: dayjs(),
     location: '',
   },
   isDialogOpen: false,
@@ -23,7 +25,7 @@ const addScheduleReducer = (state = init, action) => {
     case ADD_SCHEDULE_OPEN_DIALOG:
       return { ...state, isDialogOpen: true };
     case ADD_SCHEDULE_CLOSE_DIALOG:
-      return { ...state, isDialogOpen: false };
+      return init;
     default:
       return state;
   }
