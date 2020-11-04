@@ -11,7 +11,7 @@ const useStyles = makeStyles({
   schedule: {
     'border-bottom': '1px solid #ccc',
     'border-right': '1px solid #ccc',
-    height: '15vh',
+    height: (props) => props.cellHeight,
   },
 });
 
@@ -19,10 +19,11 @@ const createSchedule = (day) => {
   // console.log(`createSchedule on ${day}`);
 };
 
-export const CalendarElement = ({ day, month, schedules }) => {
+export const CalendarElement = ({ day, month, schedules, calendar }) => {
   const format = isFirstDay(day) ? 'MMM D' : 'D';
 
-  const classes = useStyles();
+  const props = { cellHeight: calendar.length <= 35 ? '15vh' : '12vh' };
+  const classes = useStyles(props);
 
   return (
     <div onClick={() => createSchedule(day)}>

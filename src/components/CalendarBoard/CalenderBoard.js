@@ -37,7 +37,12 @@ export const CalendarBoard = ({ calendar, month, openAddScheduleDialog }) => {
               key={date.toISOString()}
               onClick={() => openAddScheduleDialog(date)}
             >
-              <CalendarElement day={date} month={month} schedules={schedules} />
+              <CalendarElement
+                day={date}
+                month={month}
+                schedules={schedules}
+                calendar={calendar}
+              />
             </li>
           );
         })}
