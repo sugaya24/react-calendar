@@ -4,14 +4,25 @@ export const createCalendar = (month) => {
   const firstDay = getMonth(month);
   const firstDayIndex = firstDay.day();
 
-  return Array(35)
-    .fill(0)
-    .map((_, i) => {
-      const diffFromFirstDay = i - firstDayIndex;
-      const day = firstDay.add(diffFromFirstDay, 'day');
+  if (isStartFromSunday(firstDayIndex)) {
+    return Array(42)
+      .fill(0)
+      .map((_, i) => {
+        const diffFromFirstDay = i - firstDayIndex - 6;
+        const day = firstDay.add(diffFromFirstDay, 'day');
 
-      return day;
-    });
+        return day;
+      });
+  } else {
+    return Array(35)
+      .fill(0)
+      .map((_, i) => {
+        const diffFromFirstDay = i - firstDayIndex + 1;
+        const day = firstDay.add(diffFromFirstDay, 'day');
+
+        return day;
+      });
+  }
 };
 
 export const getMonth = ({ year, month }) => {
@@ -43,4 +54,8 @@ export const getNextMonth = (month) => {
 export const getPreviousMonth = (month) => {
   const day = getMonth(month).add(-1, 'month');
   return formatMonth(day);
+};
+
+export const isStartFromSunday = (index) => {
+  return index === 0 ? true : false;
 };
