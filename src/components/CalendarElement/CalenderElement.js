@@ -13,6 +13,7 @@ const useStyles = makeStyles({
     'border-bottom': '1px solid #ccc',
     'border-right': '1px solid #ccc',
     height: (props) => props.cellHeight,
+    'overflow-y': 'scroll',
   },
 });
 

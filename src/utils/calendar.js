@@ -59,3 +59,7 @@ export const getPreviousMonth = (month) => {
 export const isStartFromSunday = (index) => {
   return index === 0 ? true : false;
 };
+
+export const isBeforeToday = (day) => {
+  return dayjs().add(-1, 'day').isAfter(day);
+};
