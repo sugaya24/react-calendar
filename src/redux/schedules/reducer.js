@@ -4,9 +4,21 @@ import { SCHEDULE_ADD_ITEM } from './actions';
 const init = {
   items: [
     {
-      title: 'hello',
+      title: 'Happy Birthday🎂',
       description: '',
       date: dayjs(),
+      location: '',
+    },
+    {
+      title: 'Meeting',
+      description: '',
+      date: dayjs().add(14, 'day'),
+      location: '',
+    },
+    {
+      title: 'Interview',
+      description: '',
+      date: dayjs().add(4, 'day'),
       location: '',
     },
   ],
