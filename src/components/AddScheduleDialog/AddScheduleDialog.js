@@ -35,7 +35,7 @@ export const AddScheduleDialog = ({
             setSchedule({ date: d });
           }}
           variant="inline"
-          format="YYYY年M月D日"
+          format="dddd, MMM D"
           animateYearScrolling
           disableToolbar
           fullWidth
